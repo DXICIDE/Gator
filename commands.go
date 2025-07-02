@@ -4,10 +4,12 @@ import (
 	"errors"
 
 	"github.com/DXICIDE/Gator/internal/config"
+	"github.com/DXICIDE/Gator/internal/database"
 )
 
 type state struct {
 	cfg *config.Config
+	db  *database.Queries
 }
 
 type command struct {
