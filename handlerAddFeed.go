@@ -26,7 +26,7 @@ func handlerAddFeed(s *state, cmd command, user database.User) error {
 	feedParams.UserID = user.ID
 	feed, err := s.db.CreateFeed(context.Background(), feedParams)
 	if err != nil {
-		return err
+		return fmt.Errorf("couldn't create feed: %w", err)
 	}
 
 	cmd.arguments[2] = cmd.arguments[3]

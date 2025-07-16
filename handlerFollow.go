@@ -18,7 +18,7 @@ func handlerFollow(s *state, cmd command, user database.User) error {
 
 	feed, err := s.db.GetFeedByUrl(context.Background(), cmd.arguments[2])
 	if err != nil {
-		return err
+		return fmt.Errorf("couldn't find feed: %w", err)
 	}
 	feedParams.FeedID = feed.ID
 
